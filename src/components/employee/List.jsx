@@ -29,7 +29,7 @@ const List = () => {
               dep_name: emp.department.dep_name,
               name:emp.userId.name,
               dob: new Date(emp.dob).toLocaleDateString(),
-              profileImage: <img className='w-10 h-10 rounded-full' src={`http://localhost:5000/${emp.userId.profileImage}`}/>,
+              profileImage: <img className='w-10 h-10 rounded-full' src={`https://employee-backend-cbhu.vercel.app/public/uploads/${emp.userId.profileImage}`}/>,
               action: (<EmployeeButtons Id={emp._id}/>)
             }
           ))
