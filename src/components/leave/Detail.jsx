@@ -62,7 +62,7 @@ const Detail = () => {
           <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
             <div>
               <img
-                src={`https://employee-backend-cbhu.vercel.app/${leave.employeeId.userId.profileImage}`}
+                src={`http://localhost:5000/${leave.employeeId.userId.profileImage}`}
                 className="border rounded-full w-72 h-72"
               />
             </div>
