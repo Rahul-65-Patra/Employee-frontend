@@ -42,7 +42,7 @@ const Add = () => {
 
     try {
       const response = await axios.post(
-        `http://localhost:5000/api/salary/add`,
+        `https://employee-backend-cbhu.vercel.app/api/salary/add`,
         salary,
         {
           headers: {
