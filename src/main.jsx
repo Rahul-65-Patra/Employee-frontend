@@ -5,7 +5,7 @@ import './index.css'
 import AuthContext from './context/authContext.jsx'
 import { ToastContainer,Bounce } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-toast.configure();
+
 
 
 createRoot(document.getElementById('root')).render(
