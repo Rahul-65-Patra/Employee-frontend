@@ -3,6 +3,8 @@ import { Link } from "react-router-dom";
 import { columns, AttendanceHelper } from "../../utils/AttendanceHelper";
 import DataTable from "react-data-table-component";
 import axios from "axios";
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const Attendance = () => {
   const [attendance, setAttendance] = useState([]);

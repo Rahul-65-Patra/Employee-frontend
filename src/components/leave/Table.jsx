@@ -2,6 +2,8 @@ import React, { useEffect, useState } from "react";
 import DataTable from "react-data-table-component";
 import { columns, LeaveButtons } from "../../utils/LeaveHelper";
 import axios from "axios";
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const Table = () => {
   const [leaves, setLeaves] = useState(null);

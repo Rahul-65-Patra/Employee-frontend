@@ -2,6 +2,8 @@ import React, { useState,useEffect } from 'react'
 import { fetchDepartments } from '../../utils/EmployeeHelper';
 import axios from 'axios';
 import { useNavigate, useParams } from 'react-router-dom';
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const Edit = () => {
 

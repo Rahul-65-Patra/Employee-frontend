@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import { useAuth } from '../../context/authContext';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 
 const Add = () => {

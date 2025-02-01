@@ -11,6 +11,8 @@ import {
 } from "react-icons/fa";
 import axios from "axios";
 import "../../App.css";
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const AdminSummary = () => {
   const [summary, setSummary] = useState(null);

@@ -1,5 +1,8 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+
 
 const AttendanceReport = () => {
   const [report, setReport] = useState({});

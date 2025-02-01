@@ -2,6 +2,8 @@ import React, { useState,useEffect } from 'react'
 import { fetchDepartments } from '../../utils/EmployeeHelper';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const Add = () => {
 
@@ -17,12 +19,12 @@ const Add = () => {
     setDepartments(departments);
     }
     getDepartments();
-  },[]);
+  },[]);  
 
   const handleChange = async(e) => {
     const {name,value,files} = e.target;
     if(name === "image"){
-      setFormData((prevData)=>({...prevData,[name]:files[0]}))
+      setFormData((prevData)=>({...prevData,[name]:name==="image"?files[0]:value}))
     }
     else{
       setFormData((prevData)=>({...prevData,[name]:value}))
@@ -33,6 +35,11 @@ const Add = () => {
 
   const handleSubmit = async(e)=>{
     e.preventDefault();
+    const token = localStorage.getItem("token"); // Retrieve token
+    if (!token) {
+      toast.error("No token found. Please log in again.");
+      return;
+    }
     const formDataObj = new FormData();
     Object.keys(formData).forEach((key)=>{
       formDataObj.append(key,formData[key])
@@ -40,7 +47,8 @@ const Add = () => {
     try{
       const response = await axios.post('https://employee-backend-cbhu.vercel.app/api/employee/add',formDataObj,{
         headers:{
-          'Authorization': `Bearer ${localStorage.getItem('token')}`
+          'Authorization': `Bearer ${localStorage.getItem('token')}`,
+          'Content-Type': 'multipart/form-data'
         }
       });
 

@@ -5,6 +5,8 @@ import {columns,DepartmentButtons} from '../../utils/DepartmentHelper'
 import axios from 'axios'
 import { useState } from 'react'
 import { useEffect } from 'react'
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 
 const DepartmentList = () => {
