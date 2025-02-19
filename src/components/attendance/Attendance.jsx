@@ -35,7 +35,7 @@ const Attendance = () => {
         }));
         setAttendance(data);
         setFilterAttendance(data);
-      }
+      }   // fixed
     } catch (error) {
       console.log(error.message);
       if (error.response && !error.response.data.success) {
@@ -71,7 +71,7 @@ const Attendance = () => {
           placeholder="Seach By Emp ID"
           className="px-4 py-0.5 border outline-none rounded border-blue-600"
           onChange={handleFilter}
-        />
+        />  
         <p className="text-2xl">
           Mark Employees for <span className="font-bold underline">{new Date().toISOString().split("T")[0]}{" "}</span>
         </p> 
