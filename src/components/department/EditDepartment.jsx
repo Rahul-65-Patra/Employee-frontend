@@ -18,7 +18,7 @@ const EditDepartment = () => {
     const fetchDepartments = async () => {
       setDepLoading(true)
       try {
-        const response = await axios.get(`https://employee-backend-cbhu.vercel.app/api/department/${id}`,{
+        const response = await axios.get(`https://employee-backend-azw7.onrender.com/api/department/${id}`,{
           headers: {
             'Authorization': `Bearer ${localStorage.getItem('token')}`
           }
@@ -48,7 +48,7 @@ const EditDepartment = () => {
     e.preventDefault();
     try{
       
-      const response = await axios.put(`https://employee-backend-cbhu.vercel.app/api/department/${id}`,department,{
+      const response = await axios.put(`https://employee-backend-azw7.onrender.com/api/department/${id}`,department,{
         headers:{
           'Authorization': `Bearer ${localStorage.getItem('token')}`
         }

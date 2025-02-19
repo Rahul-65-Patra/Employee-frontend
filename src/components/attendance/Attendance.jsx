@@ -18,7 +18,7 @@ const Attendance = () => {
   const fetchAttendance = async () => {
     setLoading(true);
     try {
-      const responnse = await axios.get("https://employee-backend-cbhu.vercel.app/api/attendance", {
+      const responnse = await axios.get("https://employee-backend-azw7.onrender.com/api/attendance", {
         headers: {
           Authorization: `Bearer ${localStorage.getItem("token")}`,
         },

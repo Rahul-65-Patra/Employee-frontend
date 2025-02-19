@@ -17,7 +17,7 @@ const Login = () => {
   const handleSubmit = async(e)=>{
     e.preventDefault();
     try{
-       const response = await axios.post("https://employee-backend-cbhu.vercel.app/api/auth/login",{email,password});
+       const response = await axios.post("https://employee-backend-azw7.onrender.com/api/auth/login",{email,password});
       if(response.data.success){
         localStorage.setItem("token", response.data.token);
         login(response.data.user);

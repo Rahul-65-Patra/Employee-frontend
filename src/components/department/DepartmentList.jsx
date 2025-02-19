@@ -23,7 +23,7 @@ const DepartmentList = () => {
   const fetchDepartments = async () => {
     setDepLoading(true)
     try {
-      const response = await axios.get('https://employee-backend-cbhu.vercel.app/api/department',{
+      const response = await axios.get('https://employee-backend-azw7.onrender.com/api/department',{
         headers: {
           'Authorization': `Bearer ${localStorage.getItem('token')}`
         }

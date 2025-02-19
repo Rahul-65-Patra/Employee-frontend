@@ -13,7 +13,7 @@ const Detail = () => {
     const fetchLeave = async () => {
       try {
         const responnse = await axios.get(
-          `https://employee-backend-cbhu.vercel.app/api/leave/detail/${id}`,
+          `https://employee-backend-azw7.onrender.com/api/leave/detail/${id}`,
           {
             headers: {
               Authorization: `Bearer ${localStorage.getItem("token")}`,
@@ -37,7 +37,7 @@ const Detail = () => {
   const changeStatus = async (id, status) => {
     try {
         const responnse = await axios.put(
-          `https://employee-backend-cbhu.vercel.app/api/leave/${id}`, {status},
+          `https://employee-backend-azw7.onrender.com/api/leave/${id}`, {status},
           {
             headers: {
               Authorization: `Bearer ${localStorage.getItem("token")}`,
@@ -64,7 +64,7 @@ const Detail = () => {
           <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
             <div>
               <img
-                src={`https://employee-backend-cbhu.vercel.app/public/uploads/${leave.employeeId.userId.profileImage}`}
+                src={`https://employee-backend-azw7.onrender.com/${leave.employeeId.userId.profileImage}`}
                 className="border rounded-full w-72 h-72"
               />
             </div>

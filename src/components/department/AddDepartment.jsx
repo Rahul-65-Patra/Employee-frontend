@@ -22,7 +22,7 @@ const AddDepartment = () => {
   const handleSubmit = async(e) =>{
     e.preventDefault();
     try{
-      const response = await axios.post('https://employee-backend-cbhu.vercel.app/api/department/add',department,{
+      const response = await axios.post('https://employee-backend-azw7.onrender.com/api/department/add',department,{
         headers:{
           'Authorization': `Bearer ${localStorage.getItem('token')}`
         }

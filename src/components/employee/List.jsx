@@ -16,7 +16,7 @@ const List = () => {
     const fetchEmployees = async () => {
       setEmpLoading(true)
       try {
-        const response = await axios.get('https://employee-backend-cbhu.vercel.app/api/employee',{
+        const response = await axios.get('https://employee-backend-azw7.onrender.com/api/employee',{
           headers: {
             'Authorization': `Bearer ${localStorage.getItem('token')}`
           }
@@ -30,7 +30,7 @@ const List = () => {
               dep_name: emp.department.dep_name,
               name:emp.userId.name,
               dob: new Date(emp.dob).toLocaleDateString(),
-              profileImage: <img className='w-10 h-10 rounded-full' src={`https://employee-backend-cbhu.vercel.app/public/uploads/${emp.userId.profileImage}`}/>,
+              profileImage: <img className='w-10 h-10 rounded-full' src={`https://employee-backend-azw7.onrender.com/${emp.userId.profileImage}`}/>,
               action: (<EmployeeButtons Id={emp._id}/>)
             }
           ))

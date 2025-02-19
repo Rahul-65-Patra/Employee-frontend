@@ -13,7 +13,7 @@ const View = () => {
   useEffect(() => {
     const fetchEmployee= async () => {
       try {
-        const response = await axios.get(`https://employee-backend-cbhu.vercel.app/api/employee/${id}`,{
+        const response = await axios.get(`https://employee-backend-azw7.onrender.com/api/employee/${id}`,{
           headers: {
             'Authorization': `Bearer ${localStorage.getItem('token')}`
           }
@@ -42,7 +42,7 @@ const View = () => {
      <div className='grid grid-cols-1 gap-6 md:grid-cols-2'>
       
       <div>
-      <img src={`https://employee-backend-cbhu.vercel.app/public/uploads/${employee.userId.profileImage}`} alt="profileImage" className='border rounded-full w-72 h-72' />
+      <img src={`https://employee-backend-azw7.onrender.com/${employee.userId.profileImage}`} alt="profileImage" className='border rounded-full w-72 h-72' />
      </div>
      
      <div>
