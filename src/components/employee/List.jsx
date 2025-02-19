@@ -5,6 +5,8 @@ import {columns,EmployeeButtons} from '../../utils/EmployeeHelper';
 import DataTable from "react-data-table-component";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+const VITE_API_BASE_URL = import.meta.env.VITE_API_URL;
+const VITE_IMAGE = import.meta.env.VITE_IMAGE_URL;
 
 const List = () => {
   const [employees, setEmployees] = useState([]);
@@ -16,7 +18,7 @@ const List = () => {
     const fetchEmployees = async () => {
       setEmpLoading(true)
       try {
-        const response = await axios.get('https://employee-backend-azw7.onrender.com/api/employee',{
+        const response = await axios.get(`${VITE_API_BASE_URL}/employee`,{
           headers: {
             'Authorization': `Bearer ${localStorage.getItem('token')}`
           }
@@ -30,7 +32,7 @@ const List = () => {
               dep_name: emp.department.dep_name,
               name:emp.userId.name,
               dob: new Date(emp.dob).toLocaleDateString(),
-              profileImage: <img className='w-10 h-10 rounded-full' src={`https://employee-backend-azw7.onrender.com/${emp.userId.profileImage}`}/>,
+              profileImage:(<img className='w-10 h-10 rounded-full' src={`${VITE_IMAGE}/${emp.userId.profileImage}`} alt="profile"/>),
               action: (<EmployeeButtons Id={emp._id}/>)
             }
           ))
@@ -59,14 +61,14 @@ const List = () => {
   
   
   return (
-    <>{empLoading ? <div>Loding ...</div> :
+    <>{empLoading ? <div>Loading ...</div> :
     <div className='p-5'>
       <div className='text-center'>
       <h3 className='text-2xl font-bold'>Manage Employees</h3>
       </div>
 
       <div className='flex items-center justify-between'>
-        <input onChange={filterEmployees} className='px-8 py-1 border border-blue-500 rounded outline-none ' type="text" placeholder='Search By Employe Name' />
+        <input onChange={filterEmployees} className='px-8 py-1 border border-blue-500 rounded outline-none ' type="text" placeholder='Search By Employee Name' />
         <Link to="/admin-dashboard/add-employee" className='px-4 py-1 text-white bg-green-600 rounded'>Add New Employee</Link>
       </div>
       

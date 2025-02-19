@@ -7,6 +7,7 @@ import { useState } from 'react'
 import { useEffect } from 'react'
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+const VITE_API_BASE_URL = import.meta.env.VITE_API_URL;
 
 
 const DepartmentList = () => {
@@ -23,7 +24,7 @@ const DepartmentList = () => {
   const fetchDepartments = async () => {
     setDepLoading(true)
     try {
-      const response = await axios.get('https://employee-backend-azw7.onrender.com/api/department',{
+      const response = await axios.get(`${VITE_API_BASE_URL}/department`,{
         headers: {
           'Authorization': `Bearer ${localStorage.getItem('token')}`
         }

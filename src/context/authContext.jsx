@@ -1,5 +1,6 @@
 import React, { useEffect, useState, createContext, useContext } from 'react';
 import axios from 'axios';
+const VITE_API_BASE_URL = import.meta.env.VITE_API_URL;
 
 
 const userContext = createContext();
@@ -15,7 +16,7 @@ const authContext = ({children}) => {
         try{
           const token = localStorage.getItem('token');
         if(token){
-          const response = await axios.get("https://employee-backend-azw7.onrender.com/api/auth/verify",{
+          const response = await axios.get(`${VITE_API_BASE_URL}/auth/verify`,{
             headers:{
               'Authorization': `Bearer ${token}`
             }

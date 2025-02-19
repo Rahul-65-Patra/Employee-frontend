@@ -4,6 +4,7 @@ import { columns, LeaveButtons } from "../../utils/LeaveHelper";
 import axios from "axios";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+const VITE_API_BASE_URL = import.meta.env.VITE_API_URL;
 
 const Table = () => {
   const [leaves, setLeaves] = useState(null);
@@ -11,7 +12,7 @@ const Table = () => {
 
   const fetchLeaves = async () => {
     try {
-      const responnse = await axios.get("https://employee-backend-azw7.onrender.com/api/leave", {
+      const responnse = await axios.get(`${VITE_API_BASE_URL}/leave`, {
         headers: {
           Authorization: `Bearer ${localStorage.getItem("token")}`,
         },

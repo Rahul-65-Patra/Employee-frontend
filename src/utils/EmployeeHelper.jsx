@@ -1,6 +1,7 @@
 import React from "react"
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+const VITE_API_BASE_URL = import.meta.env.VITE_API_URL;
 
 
 const columns = [
@@ -42,7 +43,7 @@ const columns = [
 const fetchDepartments = async () => {
   let departments;
   try {
-    const response = await axios.get('https://employee-backend-azw7.onrender.com/api/department',{
+    const response = await axios.get(`${VITE_API_BASE_URL}/department`,{
       headers: {
         'Authorization': `Bearer ${localStorage.getItem('token')}`
       }
@@ -67,7 +68,7 @@ const getEmployees = async (id) => {
   
   let employees;
   try {
-    const response = await axios.get(`https://employee-backend-cbhu.vercel.app/api/employee/department/${id}`,{
+    const response = await axios.get(`${VITE_API_BASE_URL}/employee/department/${id}`,{
       headers: {
         'Authorization': `Bearer ${localStorage.getItem('token')}`
       }

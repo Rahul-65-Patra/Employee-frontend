@@ -4,6 +4,7 @@ import { useAuth } from '../../context/authContext';
 import axios from 'axios';
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+const VITE_API_BASE_URL = import.meta.env.VITE_API_URL;
 
 
 const Setting = () => {
@@ -29,7 +30,7 @@ const Setting = () => {
       setError("Password not matched");
     } else{
     try {
-      const response = await axios.put("https://employee-backend-azw7.onrender.com/api/setting/change-password",setting,{
+      const response = await axios.put(`${VITE_API_BASE_URL}/setting/change-password`,setting,{
         headers: {
           'Authorization': `Bearer ${localStorage.getItem('token')}`
         }

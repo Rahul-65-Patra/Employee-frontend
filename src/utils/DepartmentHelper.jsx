@@ -1,6 +1,7 @@
 import React from "react"
 import { useNavigate } from "react-router-dom"
 import axios from "axios"
+const VITE_API_BASE_URL = import.meta.env.VITE_API_URL;
 
 const columns = [
   {
@@ -25,10 +26,10 @@ const columns = [
   const navigate = useNavigate()
   
   const handleDelete =async(id)=>{
-    const confirm = window.confirm("Do you want to delete?")
+   const confirm = window.confirm("Do you want to delete?")
     if(confirm){
     try {
-      const response = await axios.delete(`https://employee-backend-azw7.onrender.com/api/department/${id}`,{
+      const response = await axios.delete(`${VITE_API_BASE_URL}/department/${id}`,{
         headers: {
           'Authorization': `Bearer ${localStorage.getItem('token')}`
         }

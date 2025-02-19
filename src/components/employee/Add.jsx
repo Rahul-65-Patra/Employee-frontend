@@ -4,6 +4,7 @@ import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+const VITE_API_BASE_URL = import.meta.env.VITE_API_URL;
 
 const Add = () => {
 
@@ -40,7 +41,7 @@ const Add = () => {
       formDataObj.append(key,formData[key])
     })
     try{
-      const response = await axios.post('https://employee-backend-azw7.onrender.com/api/employee/add',formDataObj,{
+      const response = await axios.post(`${VITE_API_BASE_URL}/employee/add`,formDataObj,{
         headers:{
           'Authorization': `Bearer ${localStorage.getItem('token')}`
         }

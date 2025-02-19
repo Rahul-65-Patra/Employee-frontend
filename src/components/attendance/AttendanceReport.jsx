@@ -2,6 +2,7 @@ import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+const VITE_API_BASE_URL = import.meta.env.VITE_API_URL;
 
 
 const AttendanceReport = () => {
@@ -19,7 +20,7 @@ const AttendanceReport = () => {
         query.append("date", dateFilter);
       }
       const responnse = await axios.get(
-        `https://employee-backend-azw7.onrender.com/api/attendance/report?${query.toString()}`,
+        `${VITE_API_BASE_URL}/attendance/report?${query.toString()}`,
         {
           headers: {
             Authorization: `Bearer ${localStorage.getItem("token")}`,

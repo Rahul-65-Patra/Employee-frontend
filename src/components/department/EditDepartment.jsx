@@ -4,6 +4,7 @@ import axios from 'axios'
 import { useNavigate } from 'react-router-dom'
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+const VITE_API_BASE_URL = import.meta.env.VITE_API_URL;
   
 const EditDepartment = () => {
 
@@ -18,7 +19,7 @@ const EditDepartment = () => {
     const fetchDepartments = async () => {
       setDepLoading(true)
       try {
-        const response = await axios.get(`https://employee-backend-azw7.onrender.com/api/department/${id}`,{
+        const response = await axios.get(`${VITE_API_BASE_URL}/department/${id}`,{
           headers: {
             'Authorization': `Bearer ${localStorage.getItem('token')}`
           }
@@ -48,7 +49,7 @@ const EditDepartment = () => {
     e.preventDefault();
     try{
       
-      const response = await axios.put(`https://employee-backend-azw7.onrender.com/api/department/${id}`,department,{
+      const response = await axios.put(`${VITE_API_BASE_URL}/department/${id}`,department,{
         headers:{
           'Authorization': `Bearer ${localStorage.getItem('token')}`
         }
@@ -67,7 +68,7 @@ const EditDepartment = () => {
 
 
   return (
-    <>{depLoading ? <div>Loding ...</div> :
+    <>{depLoading ? <div>Loading ...</div> :
     <div className='max-w-3xl p-8 mx-auto mt-10 bg-white rounded-md shadow-md w-96'>
     <div>
       <h2 className='mb-6 text-2xl font-bold'>Edit Department</h2>

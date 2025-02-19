@@ -4,6 +4,7 @@ import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+const VITE_API_BASE_URL = import.meta.env.VITE_API_URL;
 
 
 const Add = () => {
@@ -26,7 +27,7 @@ const Add = () => {
   const handleSubmit = async(e)=>{
      e.preventDefault();
      try {
-      const response = await axios.post('https://employee-backend-azw7.onrender.com/api/leave/add',leave,{
+      const response = await axios.post(`${VITE_API_BASE_URL}/leave/add`,leave,{
         headers: {
           'Authorization': `Bearer ${localStorage.getItem('token')}`
         }

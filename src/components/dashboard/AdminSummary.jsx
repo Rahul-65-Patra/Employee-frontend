@@ -13,6 +13,9 @@ import axios from "axios";
 import "../../App.css";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+const VITE_API_BASE_URL = import.meta.env.VITE_API_URL;
+
+
 
 const AdminSummary = () => {
   const [summary, setSummary] = useState(null);
@@ -21,7 +24,7 @@ const AdminSummary = () => {
     const fetchSummary = async () => {
       try {
         const summary = await axios.get(
-          "https://employee-backend-azw7.onrender.com/api/dashboard/summary",
+          `${VITE_API_BASE_URL}/dashboard/summary`,
           {
             headers: {
               Authorization: `Bearer ${localStorage.getItem("token")}`,

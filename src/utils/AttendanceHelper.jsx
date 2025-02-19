@@ -1,5 +1,6 @@
 import axios from "axios";
 import React from "react";
+const VITE_API_BASE_URL = import.meta.env.VITE_API_URL;
 
 export const columns = [
   {
@@ -34,7 +35,7 @@ export const columns = [
 
 export const AttendanceHelper = ({status, employeeId, statusChange}) => {
     const markEmployee = async (status, employeeId) => {
-        const response = await axios.put(`https://employee-backend-azw7.onrender.com/api/attendance/update/${employeeId}`, {status}, {
+        const response = await axios.put(`${VITE_API_BASE_URL}/attendance/update/${employeeId}`, {status}, {
             headers: {
                 Authorization: `Bearer ${localStorage.getItem("token")}`,
               },

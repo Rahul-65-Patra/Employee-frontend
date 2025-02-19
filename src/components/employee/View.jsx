@@ -3,6 +3,8 @@ import axios from 'axios'
 import { useParams } from 'react-router-dom'
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+const VITE_API_BASE_URL = import.meta.env.VITE_API_URL;
+const VITE_IMAGE = import.meta.env.VITE_IMAGE_URL;
 
 
 const View = () => {
@@ -13,7 +15,7 @@ const View = () => {
   useEffect(() => {
     const fetchEmployee= async () => {
       try {
-        const response = await axios.get(`https://employee-backend-azw7.onrender.com/api/employee/${id}`,{
+        const response = await axios.get(`${VITE_API_BASE_URL}/employee/${id}`,{
           headers: {
             'Authorization': `Bearer ${localStorage.getItem('token')}`
           }
@@ -42,7 +44,7 @@ const View = () => {
      <div className='grid grid-cols-1 gap-6 md:grid-cols-2'>
       
       <div>
-      <img src={`https://employee-backend-azw7.onrender.com/${employee.userId.profileImage}`} alt="profileImage" className='border rounded-full w-72 h-72' />
+      <img src={`${VITE_IMAGE}/${employee.userId.profileImage}`} alt="profileImage" className='border rounded-full w-72 h-72' />
      </div>
      
      <div>

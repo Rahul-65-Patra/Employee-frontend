@@ -3,6 +3,7 @@ import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom';
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+const VITE_API_BASE_URL = import.meta.env.VITE_API_URL;
 
 
 const AddDepartment = () => {
@@ -22,7 +23,7 @@ const AddDepartment = () => {
   const handleSubmit = async(e) =>{
     e.preventDefault();
     try{
-      const response = await axios.post('https://employee-backend-azw7.onrender.com/api/department/add',department,{
+      const response = await axios.post(`${VITE_API_BASE_URL}/department/add`,department,{
         headers:{
           'Authorization': `Bearer ${localStorage.getItem('token')}`
         }

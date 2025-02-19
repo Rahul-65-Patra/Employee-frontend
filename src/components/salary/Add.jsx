@@ -4,6 +4,7 @@ import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+const VITE_API_BASE_URL = import.meta.env.VITE_API_URL;
 
 const Add = () => {
   const [salary, setSalary] = useState({
@@ -43,7 +44,7 @@ const Add = () => {
 
     try {
       const response = await axios.post(
-        `https://employee-backend-azw7.onrender.com/api/salary/add`,
+        `${VITE_API_BASE_URL}/salary/add`,
         salary,
         {
           headers: {

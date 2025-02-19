@@ -3,6 +3,8 @@ import React, { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+const VITE_API_BASE_URL = import.meta.env.VITE_API_URL;
+const VITE_IMAGE = import.meta.env.VITE_IMAGE_URL;
 
 const Detail = () => {
   const { id } = useParams();
@@ -13,7 +15,7 @@ const Detail = () => {
     const fetchLeave = async () => {
       try {
         const responnse = await axios.get(
-          `https://employee-backend-azw7.onrender.com/api/leave/detail/${id}`,
+          `${VITE_API_BASE_URL}/leave/detail/${id}`,
           {
             headers: {
               Authorization: `Bearer ${localStorage.getItem("token")}`,
@@ -37,7 +39,7 @@ const Detail = () => {
   const changeStatus = async (id, status) => {
     try {
         const responnse = await axios.put(
-          `https://employee-backend-azw7.onrender.com/api/leave/${id}`, {status},
+          `${VITE_API_BASE_URL}/leave/${id}`, {status},
           {
             headers: {
               Authorization: `Bearer ${localStorage.getItem("token")}`,
@@ -64,7 +66,7 @@ const Detail = () => {
           <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
             <div>
               <img
-                src={`https://employee-backend-azw7.onrender.com/${leave.employeeId.userId.profileImage}`}
+                src={`${VITE_IMAGE}/${leave.employeeId.userId.profileImage}`}
                 className="border rounded-full w-72 h-72"
               />
             </div>

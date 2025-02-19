@@ -5,6 +5,7 @@ import DataTable from "react-data-table-component";
 import axios from "axios";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+const VITE_API_BASE_URL = import.meta.env.VITE_API_URL;
 
 const Attendance = () => {
   const [attendance, setAttendance] = useState([]);
@@ -18,7 +19,7 @@ const Attendance = () => {
   const fetchAttendance = async () => {
     setLoading(true);
     try {
-      const responnse = await axios.get("https://employee-backend-azw7.onrender.com/api/attendance", {
+      const responnse = await axios.get(`${VITE_API_BASE_URL}/attendance`, {
         headers: {
           Authorization: `Bearer ${localStorage.getItem("token")}`,
         },

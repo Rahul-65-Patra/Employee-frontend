@@ -4,6 +4,7 @@ import axios from 'axios';
 import { useNavigate, useParams } from 'react-router-dom';
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+const VITE_API_BASE_URL = import.meta.env.VITE_API_URL;
 
 const Edit = () => {
 
@@ -32,7 +33,7 @@ const Edit = () => {
   useEffect(() => {
     const fetchEmployee = async()=>{
       try {
-        const response = await axios.get(`https://employee-backend-azw7.onrender.com/api/employee/${id}`,{
+        const response = await axios.get(`${VITE_API_BASE_URL}/employee/${id}`,{
           headers: {
             'Authorization': `Bearer ${localStorage.getItem('token')}`
           }
@@ -62,7 +63,7 @@ const Edit = () => {
     e.preventDefault();
 
     try{
-      const response = await axios.put(`https://employee-backend-azw7.onrender.com/api/employee/${id}`,employee,{
+      const response = await axios.put(`${VITE_API_BASE_URL}/employee/${id}`,employee,{
         headers:{
           'Authorization': `Bearer ${localStorage.getItem('token')}`
         }
